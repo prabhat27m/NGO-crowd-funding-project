@@ -26,6 +26,8 @@ def insert_data_into_csv(file_path, data):
 # Example usage to generate 1500 records with random data
 data_to_insert = []
 
+titles = ["Health", "Education", "Social Service", "Sports", "Shelter", "Food", "Environment"]
+
 for i in range(1500):
     campaign_data = {
         "Campaign_ID": i + 1,
@@ -41,7 +43,8 @@ for i in range(1500):
         "Owner": f"0x{''.join(random.choice('0123456789ABCDEF') for _ in range(40))}",  # Random Ethereum address
         "Likes": random.randint(0, 1000),  # Random number of likes
         "Dislikes": random.randint(0, 1000),  # Random number of dislikes
-        "Fraud": random.choice([0, 1])  # Binary attribute indicating fraud (0 or 1)
+        "Fraud": random.randint(0, 1),  # Binary attribute for fraud (0 or 1)
+        "Title": random.choice(titles)  # Campaign title from specified values
     }
     data_to_insert.append(campaign_data)
 
